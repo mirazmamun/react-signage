@@ -1,0 +1,15 @@
+.Led-Dot {
+    /* display: inline-block; */
+    float: left;
+    width: 10px;
+    border-radius: 50%;
+    height: 10px;
+    background-color: tomato;
+}
+
+.Led-Dot.Active {
+    background-color: tomato;
+}
+.Led-Dot.Inactive {
+    background-color: rgb(114, 114, 113);
+}

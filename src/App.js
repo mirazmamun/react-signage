@@ -3,15 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import bootstrap from 'bootstrap/dist/js/bootstrap.min';
 import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
+import LedDotMatrix from './components/LedDotMatrix';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {bannerDigit: 'A', blinkInterval: 3};
-
   }
-  keyUp = (e) => {
-    this.setState({bannerDigit: e.target.value ? e.target.value.toUpperCase() : '0'});
+  change = (e) => {
+    this.setState({bannerDigit: e.target.value ? e.target.value.toUpperCase() : 'a'});
   }
   render() {
     return (
@@ -23,7 +23,12 @@ class App extends Component {
         <div style={{fontSize: '6em'}} className="banner-Transform">
           {this.state.bannerDigit}
         </div>
-        <input type="text" placeholder="Type in banner text" onKeyUp={this.keyUp}/>
+        <LedDotMatrix letter={this.state.bannerDigit} />
+        <form className="center container">
+          <div className="row">
+          <input className="form-control" type="text" placeholder="Type in banner text" onChange={this.change}/>
+          </div>
+        </form>
       </div>
     );
   }
